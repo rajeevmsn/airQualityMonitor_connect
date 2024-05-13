@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data: {
             labels: [],
             datasets: [{
-                label: 'Numeric Value',
+                label: 'Sensor value',
                 data: [],
                 backgroundColor: 'rgba(0, 123, 255, 0.5)',
                 borderColor: 'rgba(0, 123, 255, 1)',

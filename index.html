@@ -12,7 +12,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h1>Air Quality</h1>
+                <h1>Air Quality Monitor</h1>
+                <p>Please login if you want to send your data</p>
+                <p>Select your Arduino by clicking "Request Ports"</p>
                 <button class="btn btn-primary" id="connect" onclick="connect()">Login</button>
                 <button class="btn btn-secondary" id="request" onclick="selectSerialPort()">Request Ports</button>
                 <div id="output"></div>
@@ -22,6 +24,8 @@
     <div class="container" id="chart-container">
     <canvas id="chart" width="400" height="400"></canvas>
     </div>
+    <div class="container"><p>Recommended browsers: Chrome, edge, Opera </p></div>
+    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
