@@ -11,6 +11,8 @@ For this project we used Arduno UNO and MQ135 gas sensor.
 | A0                 | A0    |
 | Pin2               | D0    |
 
+Upload [GasSensor.ino](./GasSensor/GasSensor.ino) in your arduino Uno
+
 --------------
 Please refer the following for more information 
 - Connect project usage documentation https://github.com/ConnectProject/connect/blob/master/docs/usage.md#usage-documentation
