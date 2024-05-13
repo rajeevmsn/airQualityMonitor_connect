@@ -1,0 +1,5 @@
+#chart-container {
+    width: 25%; /* Adjust as needed */
+    height: 400px; /* Set a fixed height or adjust as needed */
+    float: left; /* Align the chart container to the left */
+}

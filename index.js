@@ -66,20 +66,56 @@ const connectURL = 'https://connect-project.io';
                             console.log("Numeric value:", numericValue);
                             valueBuffer.push(numericValue);
 
-                            // Check if the buffer has 6 values, then calculate the mean.
-                            if (valueBuffer.length === 6) {
-                                const meanValue = calculateMean(valueBuffer);
-                                handleData(meanValue);
-                                valueBuffer = [];
-                            }
-                        }
-                        dataBuffer = ''; // Reset the buffer
-                    }
+                    plotNumericValue(numericValue);
+function plotNumericValue(value) {
+    if (chart && value !== null && value !== undefined) {
+        // Add the new data point to the chart dataset only if a value is available
+        chart.data.labels.push(''); // Add an empty label
+        chart.data.datasets[0].data.push(value);
+
+        // Limit the number of data points displayed on the chart
+        const maxDataPoints = 20;
+        if (chart.data.labels.length > maxDataPoints) {
+            chart.data.labels.shift(); // Remove the oldest label
+            chart.data.datasets[0].data.shift(); // Remove the oldest data point
+        }
+
+        // Update the chart
+        chart.update();
+    }
+}
+let chart; // Declare chart variable outside the function to access it globally
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize the Chart.js chart
+    const ctx = document.getElementById('chart').getContext('2d');
+    chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Numeric Value',
+                data: [],
+                backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    display: false
+                },
+                y: {
+                    beginAtZero: true
                 }
-            } catch (error) {
-                console.error("Error reading data:", error);
             }
         }
+    });
+});
+
 
         function calculateMean(values) {
             const sum = values.reduce((acc, value) => acc + value, 0);
