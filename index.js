@@ -146,8 +146,10 @@ function handleData(serialdata) {
     document.querySelector("#output").innerText = `Received data: ${serialdata}`;
     const sessionInfo = hello('connect').getAuthResponse();
     const accessToken = sessionInfo.access_token;
-    //const date = new Date();
-    //const currentTime = String(date.toISOString());
+    
+    // const playerName = document.getElementById('sensorName').value;
+    const playerNameInput = document.getElementById('sensorName');
+    const playerName = playerNameInput.value.trim() || "AirQuality"; 
 
     const sendRequest = new XMLHttpRequest();
     
@@ -166,7 +168,7 @@ function handleData(serialdata) {
 
     let data = {
         score:serialdata,
-        playerName: 'NaatAirQuality'
+        playerName: playerName
     };
     const jsonData = JSON.stringify(data);
     console.log(data);
