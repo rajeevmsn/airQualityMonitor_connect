@@ -33,6 +33,7 @@ document.querySelector("#request").addEventListener('click', async () => {
 
         // Start reading data whenever available.
         readData();
+        document.getElementById('request').classList.add('connected');
     } catch (error) {
         console.error("Error opening the port:", error);
     }
@@ -172,6 +173,14 @@ function handleData(serialdata) {
     sendRequest.send(jsonData);
 }
 
+function nameSensor() {
+    // Retrieve the value entered in the input field
+    const enteredValue = document.getElementById('sensorName').value;
+    
+    // Update the h1 element with the entered value
+    document.getElementById('airQualityHeader').innerText = `${enteredValue} Air Quality Monitor`;
+}
+
 
 const connect = () => {
 hello('connect').login()
@@ -179,7 +188,9 @@ hello('connect').login()
 response = res;
 sendKey = 1;
 console.log(response);
-displayConnected();
+// displayConnected();
+document.getElementById('connect').style.display = 'none';
+document.getElementById('login-success').style.display = 'block';
 });
 };
 
