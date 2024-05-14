@@ -5,3 +5,4 @@ config-server.js
 package-lock.json
 package.json
 .eslintrc.js
+.vscode
